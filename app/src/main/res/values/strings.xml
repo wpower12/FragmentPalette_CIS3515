@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PaletteTwoActivities</string>
+    <string-array
+        name="color_labels">
+        <item
+            >Red</item>
+        <item
+            >White</item>
+        <item
+            >Blue</item>
+        <item
+            >Green</item>
+    </string-array>
+</resources>
