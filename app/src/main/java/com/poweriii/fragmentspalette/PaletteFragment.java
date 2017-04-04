@@ -3,6 +3,7 @@ package com.poweriii.fragmentspalette;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewDebug;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class PaletteFragment extends Fragment {
 
     ArrayList<String> colors;
+    boolean first;
 
     public PaletteFragment() {
         // Required empty public constructor
@@ -28,6 +30,8 @@ public class PaletteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("palfrag: ", "creating view");
+        first = true;
         colors = new ArrayList<>();
         colors.add("Red");
         colors.add("White");
@@ -45,8 +49,12 @@ public class PaletteFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    // Need to send basically just the position to the other fragment.
-                    ((PaletteInterface)getActivity()).sendColor(colors.get(position));
+                    if( first ){
+                        first = false;
+                    } else {
+                        // Need to send basically just the position to the other fragment.
+                        ((PaletteInterface)getActivity()).sendColor(colors.get(position));
+                    }
                 } catch (Exception e ){
 
                 }

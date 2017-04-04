@@ -23,9 +23,16 @@ public class CanvasFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedData) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_canvas, container, false);
+
+        Bundle args = getArguments();
+        if( args != null && args.get("COLOR") != null ){
+            String clr = args.get("COLOR").toString();
+            v.setBackgroundColor(Color.parseColor(clr));
+        }
+
         return v;
     }
 

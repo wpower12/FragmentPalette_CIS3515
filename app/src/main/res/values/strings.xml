@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PaletteTwoActivities</string>
+    <string name="app_name">RespFragments</string>
     <string-array
         name="color_labels">
         <item
